@@ -7,6 +7,12 @@
 
 import Foundation
 
+
+// 📘 LEARN: The JSON file has a top-level { "chapters": [...] } object, so we need this small wrapper type to decode it.
+struct ContentFile: Codable {
+    let chapters: [Chapter]
+}
+
 // 📘 LEARN: In simple MVVM the Model is just data. Codable lets JSONDecoder fill this struct directly — no separate DTO needed at this size.
 struct Chapter: Codable, Identifiable, Hashable {
     let id: String
@@ -22,13 +28,6 @@ struct Chapter: Codable, Identifiable, Hashable {
         case topics = "sections"
     }
 }
-
-// 📘 LEARN: The JSON file has a top-level { "chapters": [...] } object, so we need this small wrapper type to decode it.
-struct ContentFile: Codable {
-    let chapters: [Chapter]
-}
-
-
 
 // 📘 LEARN: Named "Topic", not "Section", because SwiftUI already has a type called Section — name clashes give confusing compiler errors.
 struct Topic: Codable, Identifiable, Hashable {

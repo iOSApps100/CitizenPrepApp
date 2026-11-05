@@ -6,27 +6,16 @@
 //
 
 import SwiftUI
-import SwiftData
+import SwiftUI
 
 @main
-struct CitizenPrepAppApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+struct CitizenPrepApp: App {
+    // 📘 LEARN: @StateObject = THIS view owns the ViewModel and keeps it alive; with @ObservedObject it would be recreated on every redraw.
+    @StateObject private var chapterListViewModel = ChapterListViewModel()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ChapterListView(viewModel: chapterListViewModel)
         }
-        .modelContainer(sharedModelContainer)
     }
 }
