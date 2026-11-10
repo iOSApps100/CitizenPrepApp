@@ -4,7 +4,7 @@
       "id": "ch1",
       "number": 1,
       "title": "Applying for Citizenship",
-      "icon": "doc.text",
+      "icon": "doc.text.fill",
       "sourcePages": "6-7",
       "sections": [
         {
@@ -61,7 +61,7 @@
       "id": "ch2",
       "number": 2,
       "title": "Rights and Responsibilities of Citizenship",
-      "icon": "scale.3d",
+      "icon": "building.columns.fill",
       "sourcePages": "8-9",
       "sections": [
         {

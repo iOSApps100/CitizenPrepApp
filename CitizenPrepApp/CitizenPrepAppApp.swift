@@ -15,7 +15,7 @@ struct CitizenPrepApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ChapterListView(viewModel: chapterListViewModel)
+            
         }
     }
 }
