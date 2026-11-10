@@ -35,14 +35,14 @@ struct Topic: Codable, Identifiable, Hashable {
     let title: String
     let keyPoints: [String]
     let body: String
-    let practiceQuestions: [PracticeQuestion]
+   // let practiceQuestions: [PracticeQuestion]
 }
 
 // 📘 LEARN: Added now but unused — designing the model early means Phase 2 (quiz) won't force changes to existing screens.
-struct PracticeQuestion: Codable, Identifiable, Hashable {
-    let id: String
-    let question: String
-    let options: [String]
-    let correctIndex: Int
-    let explanation: String
-}
+//struct PracticeQuestion: Codable, Identifiable, Hashable {
+//    let id: String
+//    let question: String
+//    let options: [String]
+//    let correctIndex: Int
+//    let explanation: String
+//}
