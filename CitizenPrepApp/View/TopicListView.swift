@@ -14,10 +14,16 @@ struct TopicListView: View {
         ScrollView {
             LazyVStack(spacing: 12) {
                 ForEach(Array(chapter.topics.enumerated()), id: \.element.id) { index, topic in
-                    TopicRowView(lessonNumber: index + 1, title: topic.title)
+                    NavigationLink(value: topic) {
+                        TopicRowView(lessonNumber: index + 1, title: topic.title)
+                    }
+                    .buttonStyle(.plain)
                 }
             }
             .padding(16)
+        }
+        .navigationDestination(for: Topic.self) { topic in
+            TopicDetailView(topic: topic)
         }
         .background(Color(.systemGroupedBackground).ignoresSafeArea())
         .navigationTitle(chapter.title)
