@@ -30,7 +30,7 @@ struct TopicDetailView: View {
                 .font(.headline)
             ForEach(topic.keyPoints, id: \.self) { point in
                 HStack(alignment: .top, spacing: 8) {
-                    Text(".")
+                    Text("•")
                     Text(point)
                     
                 }

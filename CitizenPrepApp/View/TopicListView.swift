@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TopicListView: View {
     let chapter: Chapter
-
+    
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 12) {
@@ -19,15 +19,23 @@ struct TopicListView: View {
                     }
                     .buttonStyle(.plain)
                 }
+                ActionCardView(subtitle: "Coming soon", title: "Start Practice",
+                               color: AppTheme.navy, isEnabled: false)
+                ActionCardView(subtitle: "Coming soon", title: "Start Review",
+                               color: AppTheme.green, isEnabled: false)
+                Text("Please note that all the material of this chapter is based on the Discover Canada official study guide.")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
             }
             .padding(16)
         }
         .navigationDestination(for: Topic.self) { topic in
             TopicDetailView(topic: topic)
         }
-        .background(Color(.systemGroupedBackground).ignoresSafeArea())
+        .background(Color(AppTheme.screenBackground).ignoresSafeArea())
         .navigationTitle(chapter.title)
-        .navigationBarTitleDisplayMode(.large)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

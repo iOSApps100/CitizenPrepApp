@@ -24,13 +24,13 @@ struct BookCardView: View {
             
             Image(systemName: chapter.iconName)
                 .font(.system(size: 64))
-                .foregroundStyle(.red)
+                .foregroundStyle(AppTheme.red)
         }
         .padding(16)
         .frame(maxWidth: .infinity)
         .frame(height: 230)
-        .background(Color(.systemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .background(Color(AppTheme.cardBackground))
+        .clipShape(RoundedRectangle(cornerRadius: AppTheme.cardCornerRadius))
         .shadow(color: .black.opacity(0.08), radius: 6, x: 0, y: 3)
     }
 }

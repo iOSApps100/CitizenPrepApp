@@ -40,7 +40,7 @@ struct ChapterListView: View {
                     }
                 }
             }
-            .background(Color(.systemGroupedBackground).ignoresSafeArea())
+            .background(Color(AppTheme.screenBackground).ignoresSafeArea())
             .navigationDestination(for: Chapter.self) { chapter in
                 TopicListView(chapter: chapter)
             }
