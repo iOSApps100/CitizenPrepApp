@@ -11,7 +11,8 @@ struct TopicDetailView: View {
     let topic: Topic
     @AppStorage("readerTextSizeIndex") private var textSizeIndex = 2
     let textSizes: [DynamicTypeSize] = [.small, .medium, .large]
-    
+    @AppStorage("appearance") private var appearance: AppAppearance = .system
+    @Environment(\.colorScheme) private var colorScheme
     
     var body: some View {
         ScrollView {
@@ -42,6 +43,13 @@ struct TopicDetailView: View {
                     .disabled(textSizeIndex <= 0)
                 } label: {
                     Image(systemName: "textformat.size")
+                }
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    appearance = (colorScheme == .dark) ? .light : .dark
+                } label: {
+                    Image(systemName: colorScheme == .dark ? "sun.max.fill" : "moon.fill")
                 }
             }
         }

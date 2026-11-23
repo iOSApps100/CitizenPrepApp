@@ -10,12 +10,14 @@ import SwiftUI
 
 @main
 struct CitizenPrepApp: App {
+    @AppStorage("appearance") private var appearance: AppAppearance = .system
     // 📘 LEARN: @StateObject = THIS view owns the ViewModel and keeps it alive; with @ObservedObject it would be recreated on every redraw.
     @StateObject private var chapterListViewModel = ChapterListViewModel()
 
     var body: some Scene {
         WindowGroup {
             ChapterListView()
+                .preferredColorScheme(appearance.colorScheme)
         }
     }
 }
