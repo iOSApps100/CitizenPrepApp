@@ -15,7 +15,7 @@ enum AppTheme {
 
     // 📘 LEARN: Color(.systemBackground) / (.systemGroupedBackground) automatically switch for Dark Mode — free, no extra code.
     static let screenBackground = Color(.systemGroupedBackground)
-    static let cardBackground   = Color(.systemBackground)
+    static let cardBackground = Color(.secondarySystemGroupedBackground)
 
     static let cardCornerRadius: CGFloat = 16
 }
