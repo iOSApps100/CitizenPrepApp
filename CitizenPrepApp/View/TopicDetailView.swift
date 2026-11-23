@@ -9,6 +9,9 @@ import SwiftUI
 
 struct TopicDetailView: View {
     let topic: Topic
+    @AppStorage("readerTextSizeIndex") private var textSizeIndex = 2
+    let textSizes: [DynamicTypeSize] = [.small, .medium, .large]
+    
     
     var body: some View {
         ScrollView {
@@ -20,6 +23,29 @@ struct TopicDetailView: View {
             }
             .padding(16)
         }
+        .dynamicTypeSize(textSizes[textSizeIndex])
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Menu {
+                    Button {
+                        textSizeIndex += 1
+                    } label: {
+                        Label("Larger text", systemImage: "plus")
+                    }
+                    .disabled(textSizeIndex >= textSizes.count - 1)
+                    
+                    Button {
+                        textSizeIndex -= 1
+                    } label: {
+                        Label("Smaller text", systemImage: "minus")
+                    }
+                    .disabled(textSizeIndex <= 0)
+                } label: {
+                    Image(systemName: "textformat.size")
+                }
+            }
+        }
+        
         .navigationTitle(topic.title)
         .navigationBarTitleDisplayMode(.inline)
     }
